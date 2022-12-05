@@ -6,6 +6,7 @@ public class Ventana extends JFrame{
     
     private final static int ANCHO_VENTANA = 1300;
     private final static int LARGO_VENTANA = 700;
+    private BarraMenu Menu;
  
     public Ventana() {
         
@@ -14,7 +15,8 @@ public class Ventana extends JFrame{
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         PanelCentro pc = new PanelCentro(); 
         this.setSize(ANCHO_VENTANA, LARGO_VENTANA);
-        this.add(pc,BorderLayout.CENTER); 
+        this.add(pc,BorderLayout.CENTER);
+        Menu = new BarraMenu(this);
         this.setVisible(true);
     }
 }

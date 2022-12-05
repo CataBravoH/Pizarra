@@ -9,6 +9,8 @@ public class PizarraVista extends JPanel{
     private final static int LARGO = 630;
     private Color color;
     int x,y;
+    Graphics g;
+    
     
     public PizarraVista(int x, int y, Color color){
         this.x = x; this.y = y;
