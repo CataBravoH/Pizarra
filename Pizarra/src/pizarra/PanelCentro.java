@@ -11,11 +11,43 @@ public class PanelCentro extends JPanel{
     private Lapiz lapiz;
     
     public PanelCentro(){
-        pizarra = new PizarraVista(10,10,Color.WHITE);
+        this.setLayout(null);
+        this.setBackground(Color.gray);
+        
+        pizarra = new PizarraVista();
         lapiz = new Lapiz(pizarra);
+        this.add(pizarra);
     }
     public void paint(Graphics g){
         super.paint(g);
-        if(pizarra != null) pizarra.paint(g);
     }
+    MouseListener botLapiz = new MouseListener(){
+       
+        public void mouseClicked(MouseEvent e){
+            System.out.println("boton apretado");
+            lapiz.b = true;
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+             
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+            ; 
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+             
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+             
+        }
+    };
+    
+   
 }  

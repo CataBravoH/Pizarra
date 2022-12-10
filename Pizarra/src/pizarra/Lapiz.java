@@ -35,7 +35,7 @@ public class Lapiz {
         };
         
         pizarra.addMouseListener(a);
-        pizarra.addMouseListener(a);
+        pizarra.addMouseMotionListener(a);
             
     }
 }
