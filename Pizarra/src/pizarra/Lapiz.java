@@ -18,6 +18,7 @@ public class Lapiz {
     private void eventoMouse() {
         MouseAdapter a = new MouseAdapter(){
         
+        @Override
         public void mouseDragged(MouseEvent e){
             pizarra.g = pizarra.getGraphics();
             if(b==true){
@@ -25,10 +26,7 @@ public class Lapiz {
                     pizarra.g.setColor(Color.BLACK);
                     pizarra.g.fillOval(e.getX(), e.getY(), largo, largo);
                 }
-                else if(e.getModifiersEx() == 4096){
-                    pizarra.g.setColor(Color.white);
-                    pizarra.g.fillOval(e.getX(), e.getY(), ancho,ancho);
-                }
+                
             }
         }
         

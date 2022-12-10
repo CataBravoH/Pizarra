@@ -6,7 +6,7 @@ public class Ventana extends JFrame{
     
     private final static int ANCHO_VENTANA = 1300;
     private final static int LARGO_VENTANA = 700;
-    private BarraMenu Menu;
+    private final BarraMenu Menu;
  
     public Ventana() {
         

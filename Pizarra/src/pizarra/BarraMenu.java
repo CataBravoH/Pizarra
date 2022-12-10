@@ -2,21 +2,20 @@ package pizarra;
 
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.*;
+
 
 public class BarraMenu extends JMenuBar{
-    private JMenu Pizarra, Limpiar;
-    private JMenuItem Siguiente,Anterior,Eliminar;
+    private JMenu Pizarra, Archivo;
+    
     
     public BarraMenu(Ventana v){
         v.setJMenuBar(this);
         
+        Archivo = new JMenu("Archivo");
+        this.add(Archivo);
+        
         Pizarra = new JMenu("Pizarra");
         this.add(Pizarra);
         
-        
-        Limpiar = new JMenu("Limpiar");
-        this.add(Limpiar);
     }
 }
