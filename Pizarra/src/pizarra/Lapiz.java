@@ -24,9 +24,8 @@ public class Lapiz {
             if(b==true){
                 if(e.getModifiersEx() == 1024){
                     pizarra.g.setColor(Color.BLACK);
-                    pizarra.g.fillOval(e.getX(), e.getY(), largo, largo);
-                }
-                
+                    pizarra.g.fillOval(e.getX(), e.getY(), largo, ancho);
+                }    
             }
         }
         

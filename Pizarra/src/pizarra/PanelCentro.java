@@ -4,16 +4,21 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.border.LineBorder;
 
 public class PanelCentro extends JPanel{
     private final PizarraVista pizarra;
     private Lapiz lapiz;
+    private Rectangulo rectangulo;
     private JButton BotonLimpiar;
-    
-    
-    
+    private JButton BotonRectangulo;
+    private JButton BotonLapiz;
+    private LineBorder Aborder;
+    private LineBorder Bborder;
+   
     
     public PanelCentro(){
         this.setLayout(null);
@@ -22,10 +27,11 @@ public class PanelCentro extends JPanel{
         pizarra = new PizarraVista();
         this.add(pizarra);
         lapiz = new Lapiz(pizarra);
+        rectangulo = new Rectangulo(pizarra);
+        
         Botones();
     }    
-        
-        
+               
     
     @Override
     public void paint(Graphics g){
@@ -65,6 +71,31 @@ public class PanelCentro extends JPanel{
         BotonLimpiar = new JButton("Limpiar");
         BotonLimpiar.setBounds(1150,10,100,40);
         this.add(BotonLimpiar);
+        
+        this.setLayout(null);
+        ImageIcon Cuadrado = new ImageIcon("src/img/Cuadrado.png");
+        BotonRectangulo = new JButton();
+        BotonRectangulo.setIcon(Cuadrado);
+        BotonRectangulo.setContentAreaFilled(false);
+        BotonRectangulo.setBounds(1150, 70, 100, 40);
+        this.add(BotonRectangulo);
+        Aborder = new LineBorder(Color.ORANGE);
+        Bborder = new LineBorder(Color.lightGray);
+        BotonRectangulo.setBorder(Aborder);
+        
+        this.setLayout(null);
+        ImageIcon Lapiz = new ImageIcon("src/img/pencil.png");
+        BotonLapiz = new JButton();
+        BotonLapiz.setIcon(Lapiz);
+        BotonLapiz.setContentAreaFilled(false);
+        BotonLapiz.setBounds(1150, 130, 100, 40);
+        this.add(BotonLapiz);
+        Aborder = new LineBorder(Color.MAGENTA);
+        Bborder = new LineBorder(Color.lightGray);
+        BotonLapiz.setBorder(Aborder);
+        
+        
+        
         EventoDeRaton();
     }
     
@@ -103,7 +134,38 @@ public class PanelCentro extends JPanel{
         
         };
         
+        MouseListener botRectangulo = new MouseListener(){
+            
+            @Override
+            public void mouseClicked(MouseEvent e){
+                System.out.println("Boton rectangulo");
+                lapiz.b = false;
+                rectangulo.b = true;
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+                
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                
+            }
+        };
+        
         BotonLimpiar.addMouseListener(limpiar);
+        BotonRectangulo.addMouseListener(botRectangulo);
     }
    
 }  
