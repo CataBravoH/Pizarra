@@ -13,9 +13,19 @@ public class PanelCentro extends JPanel{
     private final PizarraVista pizarra;
     private Lapiz lapiz;
     private Rectangulo rectangulo;
+    private Composicion composicion;
+    private Agregacion agregacion;
+    private Herencia herencia;
+    private Realizacion realizacion;
+    private Asociacion asociacion;
     private JButton BotonLimpiar;
     private JButton BotonRectangulo;
     private JButton BotonLapiz;
+    private JButton BotonComposicion;
+    private JButton BotonAgregacion;
+    private JButton BotonHerencia;
+    private JButton BotonRealizacion;
+    private JButton BotonAsociacion;
     private LineBorder Aborder;
     private LineBorder Bborder;
    
@@ -77,22 +87,56 @@ public class PanelCentro extends JPanel{
         BotonRectangulo = new JButton();
         BotonRectangulo.setIcon(Cuadrado);
         BotonRectangulo.setContentAreaFilled(false);
-        BotonRectangulo.setBounds(1150, 70, 100, 40);
+        BotonRectangulo.setBounds(1150, 130, 100, 40);
         this.add(BotonRectangulo);
-        Aborder = new LineBorder(Color.ORANGE);
-        Bborder = new LineBorder(Color.lightGray);
-        BotonRectangulo.setBorder(Aborder);
         
         this.setLayout(null);
         ImageIcon Lapiz = new ImageIcon("src/img/pencil.png");
         BotonLapiz = new JButton();
         BotonLapiz.setIcon(Lapiz);
         BotonLapiz.setContentAreaFilled(false);
-        BotonLapiz.setBounds(1150, 130, 100, 40);
+        BotonLapiz.setBounds(1150, 70, 100, 40);
         this.add(BotonLapiz);
-        Aborder = new LineBorder(Color.MAGENTA);
-        Bborder = new LineBorder(Color.lightGray);
-        BotonLapiz.setBorder(Aborder);
+        
+        this.setLayout(null);
+        ImageIcon Composicion = new ImageIcon("src/img/Composicion.png");
+        BotonComposicion = new JButton();
+        BotonComposicion.setIcon(Composicion);
+        BotonComposicion.setContentAreaFilled(false);
+        BotonComposicion.setBounds(10,10,120,70);
+        this.add(BotonComposicion);
+        
+        this.setLayout(null);
+        ImageIcon Agregacion = new ImageIcon("src/img/Agregacion.png");
+        BotonAgregacion = new JButton();
+        BotonAgregacion.setIcon(Agregacion);
+        BotonAgregacion.setContentAreaFilled(false);
+        BotonAgregacion.setBounds(10, 90, 120, 70);
+        this.add(BotonAgregacion);
+        
+        this.setLayout(null);
+        ImageIcon Herencia = new ImageIcon("src/img/Herencia.png");
+        BotonHerencia = new JButton();
+        BotonHerencia.setIcon(Herencia);
+        BotonHerencia.setContentAreaFilled(false);
+        BotonHerencia.setBounds(10, 170, 120, 70);
+        this.add(BotonHerencia);
+        
+        this.setLayout(null);
+        ImageIcon Realizacion = new ImageIcon("src/img/Realizacion.png");
+        BotonRealizacion = new JButton();
+        BotonRealizacion.setIcon(Realizacion);
+        BotonRealizacion.setContentAreaFilled(false);
+        BotonRealizacion.setBounds(10, 250,120,70);
+        this.add(BotonRealizacion);
+        
+        this.setLayout(null);
+        ImageIcon Asociacion = new ImageIcon("src/img/Asociacion.png");
+        BotonAsociacion = new JButton();
+        BotonAsociacion.setIcon(Asociacion);
+        BotonAsociacion.setContentAreaFilled(false);
+        BotonAsociacion.setBounds(10,330, 120,70);
+        this.add(BotonAsociacion);
         
         
         
