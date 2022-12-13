@@ -19,6 +19,7 @@ public class Rectangulo {
     
     private void EventoRaton(){
         MouseAdapter adapter = new MouseAdapter(){
+            @Override
             public void mouseDragged(MouseEvent e){
                 if(b==true){
                     if(e.getModifiersEx() == 1024){
@@ -26,20 +27,25 @@ public class Rectangulo {
                         pizarra.g.setColor(Color.black);
                         pizarra.g.drawRect(x, y, e.getX() - x, e.getY() - y);                       
                     }
-                    else if(e.getModifiersEx() == 4096){
-                        tamanoL = tamanoL + 1;
-                    }
+                    
                 }
                 
             }
+            @Override
             public void mousePressed(MouseEvent e){
                 pizarra.g = pizarra.getGraphics();
                 x = e.getX(); y = e.getY();
                 pizarra.g.setColor(Color.black);
                 pizarra.g.drawRect(x, y, 5, 5);
-                
             }
-            
+            public void mouseReleased(MouseEvent e){
+                pizarra.g = pizarra.getGraphics();
+                if(b==true){
+                    if(e.getModifiersEx() == 0){
+                        pizarra.g.drawRect(x,y,e.getX()-x, e.getY()-y);
+                    }
+                }
+            }
         };
         
         pizarra.addMouseListener(adapter);
