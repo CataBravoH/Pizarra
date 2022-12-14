@@ -44,12 +44,12 @@ public class Composicion {
             public void mouseReleased(MouseEvent e){
                 if(b==true){
                     if(e.getModifiersEx() == 0){
-                        int [] newLine = {x,y,e.getX(),e.getY()};
-                        
+                        int [] nuevaLinea = {x,y,e.getX(),e.getY()};
+                        pizarra.Lineas.add(nuevaLinea);
                         int[] romboX = {x,x-10,x,x+10};
                         int[] romboY = {y-10,y,y+10,y};
                         Polygon rombo = new Polygon(romboX,romboY,4);
-                        
+                        pizarra.Composicion.add(rombo);
                         pizarra.repaint();
                     }
                 }
@@ -59,7 +59,7 @@ public class Composicion {
         pizarra.addMouseMotionListener(adapter);
     }
     
-    public void cambiarestado(boolean b){
+    public void estado(boolean b){
         this.b =b;
     }
 }

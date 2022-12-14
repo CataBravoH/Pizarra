@@ -17,6 +17,7 @@ public class PanelCentro extends JPanel{
     private Herencia herencia;
     private Realizacion realizacion;
     private Asociacion asociacion;
+    private Texto texto;
     private JButton BotonLimpiar;
     private JButton BotonRectangulo;
     private JButton BotonLapiz;
@@ -25,6 +26,8 @@ public class PanelCentro extends JPanel{
     private JButton BotonHerencia;
     private JButton BotonRealizacion;
     private JButton BotonAsociacion;
+    private JButton BotonTexto;
+    private JButton BotonRojo, BotonVerde, BotonAzul, BotonNegro;
     
    
     
@@ -38,6 +41,9 @@ public class PanelCentro extends JPanel{
         rectangulo = new Rectangulo(pizarra);
         agregacion = new Agregacion(pizarra);
         composicion = new Composicion(pizarra);
+        herencia = new Herencia(pizarra);
+        asociacion = new Asociacion(pizarra);
+        realizacion = new Realizacion(pizarra);
         
         Botones();
     }    
@@ -111,15 +117,41 @@ public class PanelCentro extends JPanel{
         BotonAsociacion.setBounds(10,330, 120,70);
         this.add(BotonAsociacion);
         
+        this.setLayout(null);
+        BotonTexto = new JButton("Texto");
+        BotonTexto.setBounds(1150,250,100,40);
+        this.add(BotonTexto);
         
+        this.setLayout(null);
+        BotonNegro = new JButton();
+        BotonNegro.setBounds(1150,350,50,50);
+        BotonNegro.setBackground(Color.black);
+        this.add(BotonNegro);
+        
+        this.setLayout(null);
+        BotonRojo = new JButton();
+        BotonRojo.setBounds(1220,350,50,50);
+        BotonRojo.setBackground(Color.red);
+        this.add(BotonRojo);
+        
+        this.setLayout(null);
+        BotonAzul = new JButton();
+        BotonAzul.setBounds(1150,430,50,50);
+        BotonAzul.setBackground(Color.blue);
+        this.add(BotonAzul);
+        
+        this.setLayout(null);
+        BotonVerde = new JButton();
+        BotonVerde.setBounds(1220,430,50,50);
+        BotonVerde.setBackground(Color.green);
+        this.add(BotonVerde);
         
         EventoDeRaton();
     }
     
     
     private void EventoDeRaton(){
-        MouseListener limpiar = new MouseListener(){
-            
+        MouseListener limpiar = new MouseListener(){         
             @Override
             public void mouseClicked(MouseEvent e){
                 pizarra.g = pizarra.getGraphics();
@@ -127,149 +159,195 @@ public class PanelCentro extends JPanel{
                 pizarra.g.setColor(Color.white);
                 pizarra.g.fillRect(0, 0, 2000, 2000);
             }
-
             @Override
-            public void mousePressed(MouseEvent e) {
-                
+            public void mousePressed(MouseEvent e) {   
             }
-
             @Override
-            public void mouseReleased(MouseEvent e) {
-                
+            public void mouseReleased(MouseEvent e) {   
             }
-
             @Override
-            public void mouseEntered(MouseEvent e) {
-                
+            public void mouseEntered(MouseEvent e) { 
             }
-
             @Override
-            public void mouseExited(MouseEvent e) {
-                
+            public void mouseExited(MouseEvent e) {   
             }
-           
-        
         };
         
-        MouseListener botRectangulo = new MouseListener(){
-            
+        MouseListener botRectangulo = new MouseListener(){   
             @Override
             public void mouseClicked(MouseEvent e){
                 System.out.println("Boton rectangulo");
                 lapiz.b = false;
                 rectangulo.b = true;
                 agregacion.b = false;
+                herencia.b = false;
+                composicion.b = false;
+                asociacion.b = false;
+                realizacion.b = false;
             }
-
             @Override
-            public void mousePressed(MouseEvent e) {
-                
+            public void mousePressed(MouseEvent e) {    
             }
-
             @Override
-            public void mouseReleased(MouseEvent e) {
-                
+            public void mouseReleased(MouseEvent e) {   
             }
-
             @Override
-            public void mouseEntered(MouseEvent e) {
-                
+            public void mouseEntered(MouseEvent e) {  
             }
-
             @Override
-            public void mouseExited(MouseEvent e) {
-                
+            public void mouseExited(MouseEvent e) {   
             }
         };
         MouseListener botLapiz = new MouseListener(){
-       
             @Override
             public void mouseClicked(MouseEvent e){
-                System.out.println("boton apretado");
+                System.out.println("Boton Lapiz");
                 lapiz.b = true;
                 rectangulo.b = false;
                 agregacion.b = false;
+                herencia.b = false;
+                composicion.b = false;
+                asociacion.b = false;
+                realizacion.b = false;
             }
-
             @Override
             public void mousePressed(MouseEvent e) {
-             
             }
-
             @Override
             public void mouseReleased(MouseEvent e) {
-             
             }
-
             @Override
             public void mouseEntered(MouseEvent e) {
-             
             }
-
             @Override
-            public void mouseExited(MouseEvent e) {
-             
+            public void mouseExited(MouseEvent e) { 
             }
         };
         MouseListener botAgregacion = new MouseListener(){
-       
             @Override
             public void mouseClicked(MouseEvent e){
-                System.out.println("boton agregacion");
+                System.out.println("Boton agregacion");
                 agregacion.b = true;
                 lapiz.b = false;
                 rectangulo.b = false;
+                herencia.b = false;
+                composicion.b = false;
+                asociacion.b = false;
+                realizacion.b = false;
             }
-
             @Override
             public void mousePressed(MouseEvent e) {
-             
             }
-
             @Override
-            public void mouseReleased(MouseEvent e) {
-             
+            public void mouseReleased(MouseEvent e) { 
             }
-
             @Override
-            public void mouseEntered(MouseEvent e) {
-             
+            public void mouseEntered(MouseEvent e) { 
             }
-
             @Override
             public void mouseExited(MouseEvent e) {
-             
             }
         };
         MouseListener botComposicion = new MouseListener(){
-       
             @Override
             public void mouseClicked(MouseEvent e){
-                System.out.println("boton composicion");
+                System.out.println("Boton composicion");
                 composicion.b = true;
                 agregacion.b = false;
                 lapiz.b = false;
                 rectangulo.b = false;
+                herencia.b = false;
+                asociacion.b = false;
+                realizacion.b = false;
             }
-
             @Override
             public void mousePressed(MouseEvent e) {
-             
             }
-
+            @Override
+            public void mouseReleased(MouseEvent e) { 
+            }
+            @Override
+            public void mouseEntered(MouseEvent e) {  
+            }
+            @Override
+            public void mouseExited(MouseEvent e) { 
+            }
+        };
+        
+        MouseListener botHerencia = new MouseListener(){
+            @Override
+            public void mouseClicked(MouseEvent e){
+                System.out.println("Boton Herencia");
+                herencia.b = true;
+                composicion.b = false;
+                agregacion.b = false;
+                lapiz.b = false;
+                rectangulo.b = false;
+                asociacion.b = false;
+                realizacion.b = false;
+            }
+            @Override
+            public void mousePressed(MouseEvent e) {
+            }
             @Override
             public void mouseReleased(MouseEvent e) {
-             
             }
-
             @Override
             public void mouseEntered(MouseEvent e) {
-             
             }
-
             @Override
             public void mouseExited(MouseEvent e) {
-             
+            }
+        };
+        MouseListener botAsociacion = new MouseListener(){
+            @Override
+            public void mouseClicked(MouseEvent e){
+                System.out.println("Boton Asociacion");
+                asociacion.b = true;
+                herencia.b = false;
+                composicion.b = false;
+                agregacion.b = false;
+                lapiz.b = false;
+                rectangulo.b = false;
+                realizacion.b = false;
+            }
+            @Override
+            public void mousePressed(MouseEvent e) {
+            }
+            @Override
+            public void mouseReleased(MouseEvent e) {
+            }
+            @Override
+            public void mouseEntered(MouseEvent e) {
+            }
+            @Override
+            public void mouseExited(MouseEvent e) {
+            }
+        };
+        
+        MouseListener botRealizacion = new MouseListener(){
+            @Override
+            public void mouseClicked(MouseEvent e){
+                System.out.println("Boton Realizacion");
+                realizacion.b = true;
+                asociacion.b = false;
+                herencia.b = false;
+                composicion.b = false;
+                agregacion.b = false;
+                lapiz.b = false;
+                rectangulo.b = false;
+            }
+            @Override
+            public void mousePressed(MouseEvent e) {
+            }
+            @Override
+            public void mouseReleased(MouseEvent e) {
+            }
+            @Override
+            public void mouseEntered(MouseEvent e) {
+            }
+            @Override
+            public void mouseExited(MouseEvent e) {
             }
         };
         
@@ -278,7 +356,9 @@ public class PanelCentro extends JPanel{
         BotonRectangulo.addMouseListener(botRectangulo);
         BotonAgregacion.addMouseListener(botAgregacion);
         BotonComposicion.addMouseListener(botComposicion);
-        
+        BotonHerencia.addMouseListener(botHerencia);
+        BotonAsociacion.addMouseListener(botAsociacion);
+        BotonRealizacion.addMouseListener(botRealizacion);
         
     }
    

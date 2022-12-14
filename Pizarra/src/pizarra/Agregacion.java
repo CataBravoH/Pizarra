@@ -23,11 +23,11 @@ public class Agregacion {
                 if(b== true){
                     if(e.getModifiersEx() == 1024){
                         pizarra.g = pizarra.getGraphics();
-                        pizarra.g.setColor(Color.black);
                         pizarra.g.drawLine(x, y, e.getX(), e.getY());
-                        int[] romboX = {x,x-10,x,x+10};
-                        int[] romboY = {y-10,y,y+10,y};
-                        pizarra.g.drawPolygon(romboX,romboY,4);
+                        pizarra.g.setColor(Color.black);                      
+                        int[] puntosX = {x,x-10,x,x+10};
+                        int[] puntosY = {y-10,y,y+10,y};
+                        pizarra.g.drawPolygon(puntosX,puntosY,4);
                         pizarra.repaint();
                     }
                 }
@@ -43,12 +43,12 @@ public class Agregacion {
             public void mouseReleased(MouseEvent e){
                 if(b==true){
                     if(e.getModifiersEx() == 0){
-                        int[] newLine = {x,y,e.getX(),e.getY()};
-                        
-                        int[] romboX = {x,x-10,x,x+10};
-                        int[] romboY = {y-10,y,y+10,y};
-                        Polygon rombo = new Polygon(romboX,romboY,4);
-                        
+                        int[] nuevaLinea = {x,y,e.getX(),e.getY()};
+                        pizarra.Lineas.add(nuevaLinea);
+                        int[] puntosX = {x,x-10,x,x+10};
+                        int[] puntosY = {y-10,y,y+10,y};
+                        Polygon rombo = new Polygon(puntosX,puntosY,4);
+                        pizarra.Agregacion.add(rombo);
                         pizarra.repaint();
                     }
                 }
@@ -59,7 +59,7 @@ public class Agregacion {
         pizarra.addMouseMotionListener(adapter);
     }
     
-    public void cambiarestado(boolean b){
+    public void estado(boolean b){
         this.b =b;
     }
 }
