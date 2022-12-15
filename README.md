@@ -8,3 +8,8 @@ Se debe crear una pizarra múltiple que permita dibujar trazos, rectángulos, y 
 
 14/12
 Se propone crear la pizarra múltiple.
+Creando un arreglo de pizarras, para ir iterando a través de ellas y conseguir tener varias pizarras a la vez.
+Agregando la función de añadir pizarra, siguiente pizarra, anterior pizarra y quitar pizarra.
+Creando la opción en la barra de Menu.
+
+Se logra crear Pizarra multiple con problemas, la primera pizarra no se puede eliminar y algunos problemas con la iteración.

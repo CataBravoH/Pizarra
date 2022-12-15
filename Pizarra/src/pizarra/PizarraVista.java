@@ -35,6 +35,7 @@ public class PizarraVista extends JPanel{
     @Override
     public void paint(Graphics g){
         super.paint(g);
+        g.setColor(Color.black);
         
         for(int i=0; i<Rectangulo.size(); i++){
             g.drawRect(Rectangulo.get(i)[0], Rectangulo.get(i)[1], Rectangulo.get(i)[2], Rectangulo.get(i)[3]);

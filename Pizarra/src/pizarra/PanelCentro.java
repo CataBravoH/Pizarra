@@ -4,12 +4,20 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+/*
+  Clase donde se visualiza cada objeto creado: pizarras, botones, lapiz...
+*/
+
 public class PanelCentro extends JPanel{
-    private final PizarraVista pizarra;
+    private ArrayList<PizarraVista> pizarras; // Arreglo de pizarras donde se crearan.
+    private PizarraVista pizarra;
+    private int indP;
+    private int cantP;
     private Lapiz lapiz;
     private Rectangulo rectangulo;
     private Composicion composicion;
@@ -33,10 +41,15 @@ public class PanelCentro extends JPanel{
     
     public PanelCentro(){
         this.setLayout(null);
-        this.setBackground(Color.gray);
+        this.setBackground(Color.lightGray);
         
-        pizarra = new PizarraVista();
+        pizarras = new ArrayList<PizarraVista>();
+        pizarras.add(new PizarraVista());
+        indP =0;
+        pizarra = pizarras.get(indP);
         this.add(pizarra);
+        cantP = pizarras.size();
+        
         lapiz = new Lapiz(pizarra);
         rectangulo = new Rectangulo(pizarra);
         agregacion = new Agregacion(pizarra);
@@ -52,6 +65,57 @@ public class PanelCentro extends JPanel{
     @Override
     public void paint(Graphics g){
         super.paint(g);
+    }
+    
+    public void sgtPizarra(){
+        if(indP < pizarras.size() - 1){
+            this.remove(pizarra);
+            indP += 1;
+            pizarra = pizarras.get(indP);
+            this.add(pizarra);
+            this.repaint();
+            lapiz.OtraPizarra(pizarra);
+            rectangulo.OtraPizarra(pizarra);
+            agregacion.OtraPizarra(pizarra);
+            asociacion.OtraPizarra(pizarra);
+            composicion.OtraPizarra(pizarra);
+            herencia.OtraPizarra(pizarra);
+            realizacion.OtraPizarra(pizarra);
+        }
+    }
+    
+    public void antPizarra(){
+        if(indP > 0){
+            this.remove(pizarra);
+            indP -= 1;
+            pizarra = pizarras.get(indP);
+            this.add(pizarra);
+            this.repaint();
+            lapiz.OtraPizarra(pizarra);
+            rectangulo.OtraPizarra(pizarra);
+            agregacion.OtraPizarra(pizarra);
+            asociacion.OtraPizarra(pizarra);
+            composicion.OtraPizarra(pizarra);
+            herencia.OtraPizarra(pizarra);
+            realizacion.OtraPizarra(pizarra);
+        }
+    }
+    
+    public void masPizarra(){
+        if(indP == pizarras.size() - 1){
+            pizarras.add(new PizarraVista());
+            cantP = pizarras.size();
+            sgtPizarra();
+        }
+    }
+    
+    public void quitarPizarra(){
+        int indQuitar = indP;
+        if(indQuitar != 0){
+            antPizarra();
+            pizarras.remove(indQuitar);
+            cantP = pizarras.size();
+        }
     }
     
     public void Botones() {

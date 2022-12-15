@@ -12,10 +12,10 @@ public class Lapiz {
     
     public Lapiz(PizarraVista p){
         pizarra = p;
-        eventoMouse();
+        EventoRaton();
     }
 
-    private void eventoMouse() {
+    private void EventoRaton() {
         MouseAdapter a = new MouseAdapter(){
         
         @Override
@@ -34,5 +34,9 @@ public class Lapiz {
         pizarra.addMouseListener(a);
         pizarra.addMouseMotionListener(a);
             
+    }
+    public void OtraPizarra(PizarraVista p){
+        pizarra = p;
+        EventoRaton();
     }
 }
