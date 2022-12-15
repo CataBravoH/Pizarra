@@ -15,5 +15,6 @@ Creando la opción en la barra de Menu.
 Se logra crear Pizarra multiple con problemas, la primera pizarra no se puede eliminar y algunos problemas con la iteración.
 
 *Se propone para mañana:
--Arreglar el problema con el lapiz y añadirle colores
--Averiguar como agregar texto y un cuadro UML a la vez
+-Arreglar el problema con el lapiz y añadirle colores.
+-Averiguar como agregar texto y un cuadro UML a la vez.
+-Arrglar el boton limpiar para que funcione con todas las pizarras.
