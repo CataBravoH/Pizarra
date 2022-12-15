@@ -15,7 +15,7 @@ public class BarraMenu extends JMenuBar{
     private ActionListener mouse;
     
     public BarraMenu(Ventana v){
-        panel = v.getPanel();
+        panel = v.panel;
         v.setJMenuBar(this);
         EventoRaton();
         

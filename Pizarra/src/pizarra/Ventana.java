@@ -3,7 +3,7 @@ import javax.swing.JFrame;
 import java.awt.BorderLayout;
 
 public class Ventana extends JFrame{
-    private PanelCentro panel;
+    public PanelCentro panel;
     private final static int ANCHO_VENTANA = 1300;
     private final static int LARGO_VENTANA = 700;
     private final BarraMenu Menu;
@@ -20,7 +20,4 @@ public class Ventana extends JFrame{
         this.setVisible(true);
     }
     
-    PanelCentro getPanel(){
-        return panel;
-    }
 }
