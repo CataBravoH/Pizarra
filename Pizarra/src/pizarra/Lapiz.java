@@ -10,6 +10,7 @@ public class Lapiz {
     public Boolean b;
     private PizarraVista pizarra;
     private Color color;
+    public Boolean bc;
     
     public Lapiz(PizarraVista p){
         pizarra = p;
@@ -57,16 +58,28 @@ public class Lapiz {
         EventoRaton();
     }
     
-    public void Negro(){
-        color = Color.black;
+    public void Negro(boolean b){
+        this.bc = b;
+        if(b == true){
+            color = Color.black;
+        }
     }
-    public void Azul(){
-        color = Color.blue;
+    public void Azul(boolean b){
+        this.bc = b;
+        if(b == true){
+            color = Color.blue;
+        }
     }
-    public void Rojo(){
-        color = Color.red;
+    public void Rojo(boolean b){
+        this.bc = b;
+        if(b == true){
+            color = Color.red;
+        }
     }
-    public void Verde(){
-        color = Color.green;
+    public void Verde(boolean b){
+        this.bc = b;
+        if(b == true){
+            color = Color.green;
+        }
     }
 }

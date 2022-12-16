@@ -11,13 +11,13 @@ public class PizarraVista extends JPanel{
     private final static int LARGO = 610;
     public Graphics g;
     public Graphics gp;
-    public ArrayList<int[]> Lineas;
-    public ArrayList<int[]> Rectangulo;
-    public ArrayList<int[]> Lapiz;
-    public ArrayList<Color> Colores;
-    public ArrayList<Polygon> Composicion;
-    public ArrayList<Polygon> Agregacion;
-    public ArrayList<Polygon> Triangulo;
+    private ArrayList<int[]> Lineas;
+    private ArrayList<int[]> Rectangulo;
+    private ArrayList<int[]> Lapiz;
+    private ArrayList<Color> Colores;
+    private ArrayList<Polygon> Composicion;
+    private ArrayList<Polygon> Agregacion;
+    private ArrayList<Polygon> Triangulo;
     
     
     

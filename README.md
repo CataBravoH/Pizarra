@@ -21,3 +21,6 @@ Se logra crear Pizarra multiple con problemas, la primera pizarra no se puede el
 
 15/12
 Solucionado problema con el lapiz, ahora se mantiene con otros objetos y en cada pizarra.
+
+16/12
+Se propone para hoy, arreglar funciones de uml.
