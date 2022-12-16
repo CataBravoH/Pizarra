@@ -73,9 +73,6 @@ public class Herencia {
         pizarra.addMouseListener(adapter);
         pizarra.addMouseMotionListener(adapter);
     }
-    public void estado(boolean b){
-        this.b = b;
-    }
     public void OtraPizarra(PizarraVista p){
         pizarra = p;
         EventoRaton();

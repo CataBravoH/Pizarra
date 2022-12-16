@@ -11,9 +11,10 @@ public class PizarraVista extends JPanel{
     private final static int LARGO = 610;
     public Graphics g;
     public Graphics gp;
-    private static Color color;
     public ArrayList<int[]> Lineas;
     public ArrayList<int[]> Rectangulo;
+    public ArrayList<int[]> Lapiz;
+    public ArrayList<Color> Colores;
     public ArrayList<Polygon> Composicion;
     public ArrayList<Polygon> Agregacion;
     public ArrayList<Polygon> Triangulo;
@@ -25,6 +26,8 @@ public class PizarraVista extends JPanel{
         this.setSize(ANCHO,LARGO);
         this.setLocation(140,10);
         
+        Lapiz = new ArrayList<>();
+        Colores = new ArrayList<>();
         Lineas = new ArrayList<>();
         Rectangulo = new ArrayList<>();
         Composicion = new ArrayList<>();
@@ -51,6 +54,10 @@ public class PizarraVista extends JPanel{
         }
         for(int i = 0; i < Triangulo.size(); i++) {
             g.drawPolygon(Triangulo.get(i));
+        }
+        for(int i=0; i<Lapiz.size(); i++){
+            g.setColor(Colores.get(i));
+            g.fillOval(Lapiz.get(i)[0], Lapiz.get(i)[1], Lapiz.get(i)[2], Lapiz.get(i)[3]);
         }
     }
     

@@ -18,3 +18,6 @@ Se logra crear Pizarra multiple con problemas, la primera pizarra no se puede el
 -Arreglar el problema con el lapiz y añadirle colores.
 -Averiguar como agregar texto y un cuadro UML a la vez.
 -Arrglar el boton limpiar para que funcione con todas las pizarras.
+
+15/12
+Solucionado problema con el lapiz, ahora se mantiene con otros objetos y en cada pizarra.

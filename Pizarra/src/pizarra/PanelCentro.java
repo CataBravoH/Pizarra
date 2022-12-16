@@ -415,6 +415,32 @@ public class PanelCentro extends JPanel{
             }
         };
         
+        MouseListener botColorNegro = new MouseListener(){
+            @Override
+            public void mouseClicked(MouseEvent e){
+                System.out.println("Boton Color Negro");
+                realizacion.b = true;
+                asociacion.b = false;
+                herencia.b = false;
+                composicion.b = false;
+                agregacion.b = false;
+                lapiz.b = false;
+                rectangulo.b = false;
+            }
+            @Override
+            public void mousePressed(MouseEvent e) {
+            }
+            @Override
+            public void mouseReleased(MouseEvent e) {
+            }
+            @Override
+            public void mouseEntered(MouseEvent e) {
+            }
+            @Override
+            public void mouseExited(MouseEvent e) {
+            }
+        };
+        
         BotonLimpiar.addMouseListener(limpiar);
         BotonLapiz.addMouseListener(botLapiz);
         BotonRectangulo.addMouseListener(botRectangulo);

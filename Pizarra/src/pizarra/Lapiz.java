@@ -6,37 +6,67 @@ import java.awt.event.MouseEvent;
 
 
 public class Lapiz {
-    public int largo = 10, ancho = 10;
-    public boolean b = true;
-    PizarraVista pizarra;
+    private int largo = 10, ancho = 10;
+    public Boolean b;
+    private PizarraVista pizarra;
+    private Color color;
     
     public Lapiz(PizarraVista p){
         pizarra = p;
         EventoRaton();
+        color = Color.black;
+        b= true;
     }
 
     private void EventoRaton() {
-        MouseAdapter a = new MouseAdapter(){
+        MouseAdapter adapter = new MouseAdapter(){
         
-        @Override
-        public void mouseDragged(MouseEvent e){
-            pizarra.g = pizarra.getGraphics();
-            if(b==true){
-                if(e.getModifiersEx() == 1024){
-                    pizarra.g.setColor(Color.BLACK);
-                    pizarra.g.fillOval(e.getX(), e.getY(), largo, ancho);
-                }    
+            @Override
+            public void mouseDragged(MouseEvent e){
+                pizarra.g = pizarra.getGraphics();
+                if(b==true){
+                    if(e.getModifiersEx() == 1024){
+                        int [] nuevoLapiz = {e.getX() - 10, e.getY() - 10, largo, ancho};
+                        pizarra.Lapiz.add(nuevoLapiz);
+                        pizarra.Colores.add(color);
+                        pizarra.repaint();
+                    }    
+                }
             }
-        }
+            @Override
+            public void mousePressed(MouseEvent e){
+                if(b==true){
+                    if(e.getModifiersEx() == 1024){
+                        int [] nuevoLapiz = {e.getX() - 10, e.getY() - 10, largo, ancho};
+                        pizarra.Lapiz.add(nuevoLapiz);
+                        pizarra.Colores.add(color);
+                        pizarra.repaint();
+                    }
+                }
+            }
         
         };
         
-        pizarra.addMouseListener(a);
-        pizarra.addMouseMotionListener(a);
+        pizarra.addMouseListener(adapter);
+        pizarra.addMouseMotionListener(adapter);
             
     }
+    
     public void OtraPizarra(PizarraVista p){
         pizarra = p;
         EventoRaton();
+    }
+    
+    public void Negro(){
+        color = Color.black;
+    }
+    public void Azul(){
+        color = Color.blue;
+    }
+    public void Rojo(){
+        color = Color.red;
+    }
+    public void Verde(){
+        color = Color.green;
     }
 }
