@@ -50,8 +50,8 @@ public class Herencia {
             public void mouseReleased(MouseEvent e){
                 if(b==true){
                     if(e.getModifiersEx() == 0){
-                        int [] nuevaLinea = {x,x,x+10};
-                        pizarra.Lineas.add(nuevaLinea);
+                        int [] nuevaLinea = {x,y,e.getX(), e.getY()};
+                        pizarra.Lineas2.add(nuevaLinea);
                         if(e.getX() < x){
                             int [] puntosX = {x,x,x+10};
                             int [] puntosY = {y-10,y+10,y};

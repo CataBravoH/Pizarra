@@ -1,8 +1,10 @@
 package pizarra;
 
+import java.awt.BasicStroke;
 import java.awt.Color;
 import javax.swing.JPanel;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Polygon;
 import java.util.ArrayList;
 
@@ -11,13 +13,16 @@ public class PizarraVista extends JPanel{
     private final static int LARGO = 610;
     public Graphics g;
     public Graphics gp;
-    private ArrayList<int[]> Lineas;
-    private ArrayList<int[]> Rectangulo;
-    private ArrayList<int[]> Lapiz;
-    private ArrayList<Color> Colores;
-    private ArrayList<Polygon> Composicion;
-    private ArrayList<Polygon> Agregacion;
-    private ArrayList<Polygon> Triangulo;
+    public Graphics2D r;
+    public ArrayList<int[]> Lineas;
+    public ArrayList <int[]> Lineas2;
+    public ArrayList<int[]> Rectangulo;
+    public ArrayList<int[]> Lapiz;
+    public ArrayList<Color> Colores;
+    public ArrayList<Polygon> Composicion;
+    public ArrayList<Polygon> Agregacion;
+    public ArrayList<Polygon> Triangulo;
+    public ArrayList<BasicStroke> Realizacion;
     
     
     
@@ -29,10 +34,13 @@ public class PizarraVista extends JPanel{
         Lapiz = new ArrayList<>();
         Colores = new ArrayList<>();
         Lineas = new ArrayList<>();
+        Lineas2 = new ArrayList<>();
         Rectangulo = new ArrayList<>();
         Composicion = new ArrayList<>();
         Agregacion = new ArrayList<>();
         Triangulo = new ArrayList<>();
+        Realizacion = new ArrayList<>();
+        
     }
     
     @Override
@@ -46,6 +54,9 @@ public class PizarraVista extends JPanel{
         for(int i=0; i<Lineas.size(); i++){
             g.drawLine(Lineas.get(i)[0],Lineas.get(i)[1], Lineas.get(i)[2], Lineas.get(i)[3]);
         }
+        for(int i=0; i<Lineas2.size(); i++){
+            g.drawLine(Lineas2.get(i)[0], Lineas2.get(i)[1], Lineas2.get(i)[2], Lineas2.get(i)[3]);
+        }
         for(int i=0; i<Composicion.size(); i++){
             g.fillPolygon(Composicion.get(i));
         }
@@ -58,6 +69,9 @@ public class PizarraVista extends JPanel{
         for(int i=0; i<Lapiz.size(); i++){
             g.setColor(Colores.get(i));
             g.fillOval(Lapiz.get(i)[0], Lapiz.get(i)[1], Lapiz.get(i)[2], Lapiz.get(i)[3]);
+        }
+        for(int i=0; i<Realizacion.size(); i++){
+            r.setStroke(Realizacion.get(i));   
         }
     }
     

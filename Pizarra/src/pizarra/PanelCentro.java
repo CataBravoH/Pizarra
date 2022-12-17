@@ -85,6 +85,7 @@ public class PanelCentro extends JPanel{
             composicion.OtraPizarra(pizarra);
             herencia.OtraPizarra(pizarra);
             realizacion.OtraPizarra(pizarra);
+            
         }
     }
     
@@ -102,6 +103,7 @@ public class PanelCentro extends JPanel{
             composicion.OtraPizarra(pizarra);
             herencia.OtraPizarra(pizarra);
             realizacion.OtraPizarra(pizarra);
+           
         }
     }
     
@@ -219,13 +221,13 @@ public class PanelCentro extends JPanel{
     
     
     private void EventoDeRaton(){
-        MouseListener limpiar = new MouseListener(){         
+        MouseListener botlimpiar = new MouseListener(){         
             @Override
             public void mouseClicked(MouseEvent e){
-                pizarra.g = pizarra.getGraphics();
                 System.out.println("Boton limpiar");
+                pizarra.g = pizarra.getGraphics();
                 pizarra.g.setColor(Color.white);
-                pizarra.g.fillRect(0, 0, 2000, 2000);
+                pizarra.g.fillRect(0,0,2000,2000);
             }
             @Override
             public void mousePressed(MouseEvent e) {   
@@ -532,7 +534,7 @@ public class PanelCentro extends JPanel{
             }
         };
         
-        BotonLimpiar.addMouseListener(limpiar);
+        BotonLimpiar.addMouseListener(botlimpiar);
         BotonLapiz.addMouseListener(botLapiz);
         BotonRectangulo.addMouseListener(botRectangulo);
         BotonAgregacion.addMouseListener(botAgregacion);
