@@ -19,10 +19,6 @@ public class PanelCentro extends JPanel{
     private int indP;
     private int cantP;
     private Lapiz lapiz;
-    private Lapiz lapiznegro;
-    private Lapiz lapizazul;
-    private Lapiz lapizrojo;
-    private Lapiz lapizverde;
     private Rectangulo rectangulo;
     private Composicion composicion;
     private Agregacion agregacion;
@@ -432,13 +428,13 @@ public class PanelCentro extends JPanel{
             @Override
             public void mouseClicked(MouseEvent e){
                 System.out.println("Boton Color Negro");
-                lapiznegro.Negro(true);
+                lapiz.b = true;
+                lapiz.Negro();
                 realizacion.b = false;
                 asociacion.b = false;
                 herencia.b = false;
                 composicion.b = false;
                 agregacion.b = false;
-                lapiz.b = true;
                 rectangulo.b = false;
                 
             }
@@ -459,13 +455,13 @@ public class PanelCentro extends JPanel{
             @Override
             public void mouseClicked(MouseEvent e){
                 System.out.println("Boton Color Azul");
-                lapizazul.Azul(true);
+                lapiz.b = true;
+                lapiz.Azul();
                 realizacion.b = false;
                 asociacion.b = false;
                 herencia.b = false;
                 composicion.b = false;
                 agregacion.b = false;
-                lapiz.b = true;
                 rectangulo.b = false;
             }
             @Override
@@ -485,13 +481,13 @@ public class PanelCentro extends JPanel{
             @Override
             public void mouseClicked(MouseEvent e){
                 System.out.println("Boton Color Rojo");
-                lapizrojo.Rojo(true);
+                lapiz.b = true;
+                lapiz.Rojo();
                 realizacion.b = false;
                 asociacion.b = false;
                 herencia.b = false;
                 composicion.b = false;
                 agregacion.b = false;
-                lapiz.b = false;
                 rectangulo.b = false;
             }
             @Override
@@ -511,13 +507,13 @@ public class PanelCentro extends JPanel{
             @Override
             public void mouseClicked(MouseEvent e){
                 System.out.println("Boton Color Verde");
-                lapizverde.Verde(true);
+                lapiz.b = true;
+                lapiz.Verde();
                 realizacion.b = false;
                 asociacion.b = false;
                 herencia.b = false;
                 composicion.b = false;
                 agregacion.b = false;
-                lapiz.b = false;
                 rectangulo.b = false;
             }
             @Override

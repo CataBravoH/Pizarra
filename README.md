@@ -25,3 +25,6 @@ Solucionado problema con el lapiz, ahora se mantiene con otros objetos y en cada
 16/12
 Se propone para hoy, arreglar funciones de uml.
 *Se arreglaron funciones de uml, excepto la de Realizacion la función de BasicStroke no ejecuta como quiero
+
+19/12
+Se agregaron colores al lapiz
