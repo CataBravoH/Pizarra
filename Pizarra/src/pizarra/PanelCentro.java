@@ -221,9 +221,14 @@ public class PanelCentro extends JPanel{
             @Override
             public void mouseClicked(MouseEvent e){
                 System.out.println("Boton limpiar");
-                pizarra.g = pizarra.getGraphics();
+                for(int j=0; j<pizarra.Lapiz.size(); j++){
+                        pizarra.Lapiz.remove(j);
+                }
+                pizarra.repaint();
+                
+                /*pizarra.g = pizarra.getGraphics();
                 pizarra.g.setColor(Color.white);
-                pizarra.g.fillRect(0,0,2000,2000);
+                pizarra.g.fillRect(0,0,2000,2000);*/
             }
             @Override
             public void mousePressed(MouseEvent e) {   
