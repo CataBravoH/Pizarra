@@ -1,22 +1,31 @@
-package pizarra;
+package ObjetosUML;
 
 import java.awt.Color;
 import java.awt.Polygon;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
+import Interfaz.*;
+/**
+ * Clase Herencia UML, clase que dibuja un triangulo junto a una linea
+ * @author cata
+ */
 public class Herencia {
     private int x,y;
-    PizarraVista pizarra;
-    public Boolean b;
-    
+    private PizarraVista pizarra;
+    private Boolean b;
+    /**
+     * Dibuja objeto de herencia en la pizarra
+     * @param p parametro de pizarraVista
+     */
     public Herencia(PizarraVista p){
         pizarra = p;
         this.x = 0; this.y = 0;
         b = false;
         EventoRaton();
     }
-    
+    /**
+     * Metodo de EventoRaton, que utiliza funciones de MouseAdapter para dibujar con el mouse el triangulo y la linea
+     */
     private void EventoRaton(){
         MouseAdapter adapter = new MouseAdapter(){
             @Override
@@ -73,8 +82,19 @@ public class Herencia {
         pizarra.addMouseListener(adapter);
         pizarra.addMouseMotionListener(adapter);
     }
+    /**
+     * metodo que recibe una variable de PizarraVista para ir alternando entre pizarras
+     * @param p 
+     */
     public void OtraPizarra(PizarraVista p){
         pizarra = p;
         EventoRaton();
+    }
+    /**
+     * metodo status que recibe una variable boolean para hacer que aparezca el lapiz en la pizarra
+     * @param b parametro de estado, true o false 
+     */
+    public void status(boolean b){
+        this.b=b;
     }
 }

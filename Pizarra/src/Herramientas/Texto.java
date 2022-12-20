@@ -1,6 +1,7 @@
-package pizarra;
+package herramientas;
 
 import javax.swing.JFrame;
+import Interfaz.*;
 
 public class Texto extends JFrame{
     private String contenido;

@@ -1,0 +1,2 @@
+herramientas.Texto
+pizarra.Texto

@@ -1,4 +1,4 @@
-package pizarra;
+package Interfaz;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -8,11 +8,12 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
-
-/*
-  Clase donde se visualiza cada objeto creado: pizarras, botones, lapiz...
-*/
-
+import ObjetosUML.*;
+import herramientas.*;
+/**
+ * Clase Panel del centro que contiene las demás clases para darle visualizarlas de distintas maneras y darle su funcion correspondiente
+ * @author cata
+ */
 public class PanelCentro extends JPanel{
     private ArrayList<PizarraVista> pizarras; // Arreglo de pizarras donde se crearan.
     private PizarraVista pizarra;
@@ -38,7 +39,9 @@ public class PanelCentro extends JPanel{
     private JButton BotonRojo, BotonVerde, BotonAzul, BotonNegro;
     
    
-    
+    /**
+     * Se crea el panel a partir de las funciones de JPanel, se inicializa todas los objetos para visualizalos en el panel
+     */
     public PanelCentro(){
         this.setLayout(null);
         this.setBackground(Color.lightGray);
@@ -66,7 +69,9 @@ public class PanelCentro extends JPanel{
     public void paint(Graphics g){
         super.paint(g);
     }
-    
+    /**
+     * Metodo que se encarga de pasar a la siguiente pizarra una vez ya creada
+     */
     public void sgtPizarra(){
         if(indP < pizarras.size() - 1){
             this.remove(pizarra);
@@ -84,7 +89,9 @@ public class PanelCentro extends JPanel{
             
         }
     }
-    
+    /**
+     * Metodo que se encarga de pasar a la anterior pizarra
+     */
     public void antPizarra(){
         if(indP > 0){
             this.remove(pizarra);
@@ -102,7 +109,9 @@ public class PanelCentro extends JPanel{
            
         }
     }
-    
+    /**
+     * Metodo que agrega una pizarra
+     */
     public void masPizarra(){
         if(indP == pizarras.size() - 1){
             pizarras.add(new PizarraVista());
@@ -110,7 +119,9 @@ public class PanelCentro extends JPanel{
             sgtPizarra();
         }
     }
-    
+    /**
+     * Metodo que elimina una pizarra
+     */
     public void quitarPizarra(){
         int indQuitar = indP;
         if(indQuitar != 0){
@@ -119,7 +130,9 @@ public class PanelCentro extends JPanel{
             cantP = pizarras.size();
         }
     }
-    
+    /**
+     * Metodo que crea los botones en el panel, le da imagen, nombre o color según corresponda
+     */
     public void Botones() {
         
         this.setLayout(null);
@@ -215,7 +228,9 @@ public class PanelCentro extends JPanel{
         EventoDeRaton();
     }
     
-    
+    /**
+     * Metodo Evento de Raton que utiliza funciones de MouseListener para que actuen los botones cuando se hace click en ellos
+     */
     private void EventoDeRaton(){
         MouseListener botlimpiar = new MouseListener(){         
             @Override
@@ -248,13 +263,13 @@ public class PanelCentro extends JPanel{
             @Override
             public void mouseClicked(MouseEvent e){
                 System.out.println("Boton rectangulo");
-                lapiz.b = false;
-                rectangulo.b = true;
-                agregacion.b = false;
-                herencia.b = false;
-                composicion.b = false;
-                asociacion.b = false;
-                realizacion.b = false;
+                rectangulo.status(true);
+                lapiz.status(false);
+                agregacion.status(false);
+                herencia.status(false);
+                composicion.status(false);
+                asociacion.status(false);
+                realizacion.status(false);
                 
             }
             @Override
@@ -274,13 +289,13 @@ public class PanelCentro extends JPanel{
             @Override
             public void mouseClicked(MouseEvent e){
                 System.out.println("Boton Lapiz");
-                lapiz.b = true;
-                rectangulo.b = false;
-                agregacion.b = false;
-                herencia.b = false;
-                composicion.b = false;
-                asociacion.b = false;
-                realizacion.b = false;
+                lapiz.status(true);
+                rectangulo.status(false);
+                agregacion.status(false);
+                herencia.status(false);
+                composicion.status(false);
+                asociacion.status(false);
+                realizacion.status(false);
                 
             }
             @Override
@@ -300,13 +315,13 @@ public class PanelCentro extends JPanel{
             @Override
             public void mouseClicked(MouseEvent e){
                 System.out.println("Boton agregacion");
-                agregacion.b = true;
-                lapiz.b = false;
-                rectangulo.b = false;
-                herencia.b = false;
-                composicion.b = false;
-                asociacion.b = false;
-                realizacion.b = false;
+                agregacion.status(true);
+                lapiz.status(false);
+                rectangulo.status(false);
+                herencia.status(false);
+                composicion.status(false);
+                asociacion.status(false);
+                realizacion.status(false);
                 
             }
             @Override
@@ -326,13 +341,13 @@ public class PanelCentro extends JPanel{
             @Override
             public void mouseClicked(MouseEvent e){
                 System.out.println("Boton composicion");
-                composicion.b = true;
-                agregacion.b = false;
-                lapiz.b = false;
-                rectangulo.b = false;
-                herencia.b = false;
-                asociacion.b = false;
-                realizacion.b = false;
+                composicion.status(true);
+                agregacion.status(false);
+                lapiz.status(false);
+                rectangulo.status(false);
+                herencia.status(false);
+                asociacion.status(false);
+                realizacion.status(false);
                 
             }
             @Override
@@ -353,13 +368,13 @@ public class PanelCentro extends JPanel{
             @Override
             public void mouseClicked(MouseEvent e){
                 System.out.println("Boton Herencia");
-                herencia.b = true;
-                composicion.b = false;
-                agregacion.b = false;
-                lapiz.b = false;
-                rectangulo.b = false;
-                asociacion.b = false;
-                realizacion.b = false;
+                herencia.status(true);
+                composicion.status(false);
+                agregacion.status(false);
+                lapiz.status(false);
+                rectangulo.status(false);
+                asociacion.status(false);
+                realizacion.status(false);
                 
             }
             @Override
@@ -379,13 +394,13 @@ public class PanelCentro extends JPanel{
             @Override
             public void mouseClicked(MouseEvent e){
                 System.out.println("Boton Asociacion");
-                asociacion.b = true;
-                herencia.b = false;
-                composicion.b = false;
-                agregacion.b = false;
-                lapiz.b = false;
-                rectangulo.b = false;
-                realizacion.b = false;
+                asociacion.status(true);
+                herencia.status(false);
+                composicion.status(false);
+                agregacion.status(false);
+                lapiz.status(false);
+                rectangulo.status(false);
+                realizacion.status(false);
                 
             }
             @Override
@@ -406,13 +421,13 @@ public class PanelCentro extends JPanel{
             @Override
             public void mouseClicked(MouseEvent e){
                 System.out.println("Boton Realizacion");
-                realizacion.b = true;
-                asociacion.b = false;
-                herencia.b = false;
-                composicion.b = false;
-                agregacion.b = false;
-                lapiz.b = false;
-                rectangulo.b = false;
+                realizacion.status(true);
+                asociacion.status(false);
+                herencia.status(false);
+                composicion.status(false);
+                agregacion.status(false);
+                lapiz.status(false);
+                rectangulo.status(false);
                 
             }
             @Override
@@ -433,14 +448,14 @@ public class PanelCentro extends JPanel{
             @Override
             public void mouseClicked(MouseEvent e){
                 System.out.println("Boton Color Negro");
-                lapiz.b = true;
+                lapiz.status(true);
                 lapiz.Negro();
-                realizacion.b = false;
-                asociacion.b = false;
-                herencia.b = false;
-                composicion.b = false;
-                agregacion.b = false;
-                rectangulo.b = false;
+                realizacion.status(false);
+                asociacion.status(false);
+                herencia.status(false);
+                composicion.status(false);
+                agregacion.status(false);
+                rectangulo.status(false);
                 
             }
             @Override
@@ -460,14 +475,14 @@ public class PanelCentro extends JPanel{
             @Override
             public void mouseClicked(MouseEvent e){
                 System.out.println("Boton Color Azul");
-                lapiz.b = true;
+                lapiz.status(true);
                 lapiz.Azul();
-                realizacion.b = false;
-                asociacion.b = false;
-                herencia.b = false;
-                composicion.b = false;
-                agregacion.b = false;
-                rectangulo.b = false;
+                realizacion.status(false);
+                asociacion.status(false);
+                herencia.status(false);
+                composicion.status(false);
+                agregacion.status(false);
+                rectangulo.status(false);
             }
             @Override
             public void mousePressed(MouseEvent e) {
@@ -486,14 +501,14 @@ public class PanelCentro extends JPanel{
             @Override
             public void mouseClicked(MouseEvent e){
                 System.out.println("Boton Color Rojo");
-                lapiz.b = true;
+                lapiz.status(true);
                 lapiz.Rojo();
-                realizacion.b = false;
-                asociacion.b = false;
-                herencia.b = false;
-                composicion.b = false;
-                agregacion.b = false;
-                rectangulo.b = false;
+                realizacion.status(false);
+                asociacion.status(false);
+                herencia.status(false);
+                composicion.status(false);
+                agregacion.status(false);
+                rectangulo.status(false);
             }
             @Override
             public void mousePressed(MouseEvent e) {
@@ -512,14 +527,14 @@ public class PanelCentro extends JPanel{
             @Override
             public void mouseClicked(MouseEvent e){
                 System.out.println("Boton Color Verde");
-                lapiz.b = true;
+                lapiz.status(true);
                 lapiz.Verde();
-                realizacion.b = false;
-                asociacion.b = false;
-                herencia.b = false;
-                composicion.b = false;
-                agregacion.b = false;
-                rectangulo.b = false;
+                realizacion.status(false);
+                asociacion.status(false);
+                herencia.status(false);
+                composicion.status(false);
+                agregacion.status(false);
+                rectangulo.status(false);
             }
             @Override
             public void mousePressed(MouseEvent e) {

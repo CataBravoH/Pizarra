@@ -27,4 +27,5 @@ Se propone para hoy, arreglar funciones de uml.
 *Se arreglaron funciones de uml, excepto la de Realizacion la función de BasicStroke no ejecuta como quiero
 
 19/12
-Se agregaron colores al lapiz
+-Se agregaron colores al lapiz
+-Agregando test, ordenando el codigo con package, escribiendo para que se entienda en javadoc.

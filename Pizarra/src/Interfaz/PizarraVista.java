@@ -1,4 +1,4 @@
-package pizarra;
+package Interfaz;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -7,7 +7,10 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Polygon;
 import java.util.ArrayList;
-
+/**
+ * Clase que crea el panel de Pizarra, la pizarra en blanco y alberga los objetos que se pueden crear en ella
+ * @author cata
+ */
 public class PizarraVista extends JPanel{
     private final static int ANCHO = 1000;
     private final static int LARGO = 610;
@@ -24,7 +27,9 @@ public class PizarraVista extends JPanel{
     public ArrayList<Polygon> Triangulo;
     public ArrayList<BasicStroke> Realizacion;
     
-    
+    /**
+     * Crea la pizarra a partir de las funciones de JPanel 
+     */
     
     public PizarraVista(){
         this.setBackground(Color.white);
@@ -43,6 +48,13 @@ public class PizarraVista extends JPanel{
         
     }
     
+    public Graphics grafico(){
+        return g;
+    }
+    /**
+     * Metodo que vizualiza la pizarra y le da otras funcionalidades, también recibe a los demás objetos en ella
+     * @param g parametro de Graphics
+     */
     @Override
     public void paint(Graphics g){
         super.paint(g);

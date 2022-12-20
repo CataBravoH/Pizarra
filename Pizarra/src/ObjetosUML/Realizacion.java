@@ -1,4 +1,4 @@
-package pizarra;
+package ObjetosUML;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -6,23 +6,33 @@ import java.awt.Graphics2D;
 import java.awt.Polygon;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
+import Interfaz.*;
+/**
+ * Clase Realizacion UML, clase que dibuja un triangulo y una linea punteada
+ * @author catal
+ */
 
 public class Realizacion {
     private int x,y;
     private PizarraVista pizarra;
-    public Boolean b;
+    private Boolean b;
     private float guiones[]={10,10};
     private int ancholinea=3;
     private int cb = BasicStroke.CAP_BUTT;
     private int jr = BasicStroke.JOIN_ROUND;
-    
+    /**
+     * Dibuja un objeto Realizacion en la pizarra
+     * @param p parametro de pizarraVista
+     */
     public Realizacion(PizarraVista p){
         pizarra = p;
         this.x=0; this.y=0;
         b=false;
         EventoRaton();
     }
+    /**
+     * Metodo de EventoRaton, que utiliza funciones de MouseAdapter para dibujar con el mouse el triangulo y la linea punteada
+     */
     public void EventoRaton(){
         MouseAdapter adapter = new MouseAdapter(){
             @Override
@@ -85,9 +95,19 @@ public class Realizacion {
         pizarra.addMouseListener(adapter);
         pizarra.addMouseMotionListener(adapter);
     }
-    
+    /**
+     * metodo que recibe una variable de PizarraVista para ir alternando entre pizarras
+     * @param p 
+     */
     public void OtraPizarra(PizarraVista p){
         pizarra = p;
         EventoRaton();
+    }
+    /**
+     * metodo status que recibe una variable boolean para hacer que aparezca el lapiz en la pizarra
+     * @param b parametro de estado, true o false 
+     */
+    public void status(boolean b){
+        this.b=b;
     }
 }
