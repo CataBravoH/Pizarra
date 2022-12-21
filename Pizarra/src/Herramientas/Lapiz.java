@@ -10,7 +10,7 @@ import Interfaz.*;
  */
 
 public class Lapiz {
-    private int largo = 10, ancho = 10;
+    private int largo = 5, ancho = 5;
     private Boolean b;
     private PizarraVista pizarra;
     private Color color;

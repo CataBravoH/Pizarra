@@ -29,3 +29,4 @@ Se propone para hoy, arreglar funciones de uml.
 20/12
 -Creacion de una goma
 -Funcionalidad al boton limpiar
+-Se crearon lineas en el rectangulo para que sea como un cuadro UML

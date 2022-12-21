@@ -34,6 +34,8 @@ public class Rectangulo {
                         pizarra.g = pizarra.getGraphics();
                         pizarra.g.setColor(Color.black);
                         pizarra.g.drawRect(x, y, e.getX() - x, e.getY() - y);
+                        pizarra.g.drawLine(x, y+30, e.getX() , y+30 );
+                        pizarra.g.drawLine(x, y+100, e.getX(), y+100);
                         pizarra.repaint();
                     }
                     
@@ -48,6 +50,8 @@ public class Rectangulo {
                     pizarra.g = pizarra.getGraphics();
                     pizarra.g.setColor(Color.BLACK);
                     pizarra.g.drawRect(x, y, e.getX() - x, e.getY() - y);
+                    pizarra.g.drawLine(x, y+30, e.getX() , y+30 );
+                    pizarra.g.drawLine(x, y+100, e.getX(), y+100);
                 }
             }
             public void mouseReleased(MouseEvent e){
@@ -55,6 +59,10 @@ public class Rectangulo {
                     if(e.getModifiersEx() == 0){
                         int [] nuevoRectangulo = {x,y,e.getX()-x,e.getY()-y};
                         pizarra.Rectangulo.add(nuevoRectangulo);
+                        int [] nuevaLinea = {x, y+30, e.getX() , y+30 };
+                        pizarra.Lineas.add(nuevaLinea);
+                        int [] nuevaLinea2 = {x, y+100, e.getX(), y+100};
+                        pizarra.Lineas.add(nuevaLinea2);
                         pizarra.repaint();
                         
                     }
