@@ -21,6 +21,7 @@ public class PizarraVista extends JPanel{
     public ArrayList <int[]> Lineas2;
     public ArrayList<int[]> Rectangulo;
     public ArrayList<int[]> Lapiz;
+    public ArrayList<int[]> Goma;
     public ArrayList<Color> Colores;
     public ArrayList<Polygon> Composicion;
     public ArrayList<Polygon> Agregacion;
@@ -37,6 +38,7 @@ public class PizarraVista extends JPanel{
         this.setLocation(140,10);
         
         Lapiz = new ArrayList<>();
+        Goma = new ArrayList<>();
         Colores = new ArrayList<>();
         Lineas = new ArrayList<>();
         Lineas2 = new ArrayList<>();
@@ -48,9 +50,6 @@ public class PizarraVista extends JPanel{
         
     }
     
-    public Graphics grafico(){
-        return g;
-    }
     /**
      * Metodo que vizualiza la pizarra y le da otras funcionalidades, también recibe a los demás objetos en ella
      * @param g parametro de Graphics
@@ -82,11 +81,15 @@ public class PizarraVista extends JPanel{
             g.setColor(Colores.get(i));
             g.fillOval(Lapiz.get(i)[0], Lapiz.get(i)[1], Lapiz.get(i)[2], Lapiz.get(i)[3]);
         }
+        
+        for(int i=0; i<Goma.size(); i++){
+            g.setColor(Color.white);
+            g.fillOval(Goma.get(i)[0], Goma.get(i)[1], Goma.get(i)[2], Goma.get(i)[3]);
+        }
         for(int i=0; i<Realizacion.size(); i++){
             r.setStroke(Realizacion.get(i));   
         }
     }
-    
 
    
 }

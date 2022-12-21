@@ -14,10 +14,6 @@ Creando la opción en la barra de Menu.
 
 Se logra crear Pizarra multiple con problemas, la primera pizarra no se puede eliminar y algunos problemas con la iteración.
 
-*Se propone para mañana:
--Arreglar el problema con el lapiz y añadirle colores.
--Averiguar como agregar texto y un cuadro UML a la vez.
--Arrglar el boton limpiar para que funcione con todas las pizarras.
 
 15/12
 Solucionado problema con el lapiz, ahora se mantiene con otros objetos y en cada pizarra
@@ -28,4 +24,7 @@ Se propone para hoy, arreglar funciones de uml.
 
 19/12
 -Se agregaron colores al lapiz
--Agregando test, ordenando el codigo con package, escribiendo para que se entienda en javadoc.
+-Agregando test, ordenando el codigo con package, escribiendo comentarios para javadoc.
+
+20/12
+-Creacion de una goma

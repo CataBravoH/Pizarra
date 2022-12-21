@@ -10,6 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import ObjetosUML.*;
 import herramientas.*;
+import Herramientas.Goma;
 /**
  * Clase Panel del centro que contiene las demás clases para darle visualizarlas de distintas maneras y darle su funcion correspondiente
  * @author cata
@@ -20,6 +21,7 @@ public class PanelCentro extends JPanel{
     private int indP;
     private int cantP;
     private Lapiz lapiz;
+    private Goma goma;
     private Rectangulo rectangulo;
     private Composicion composicion;
     private Agregacion agregacion;
@@ -36,6 +38,7 @@ public class PanelCentro extends JPanel{
     private JButton BotonRealizacion;
     private JButton BotonAsociacion;
     private JButton BotonTexto;
+    private JButton BotonGoma;
     private JButton BotonRojo, BotonVerde, BotonAzul, BotonNegro;
     
    
@@ -54,6 +57,7 @@ public class PanelCentro extends JPanel{
         cantP = pizarras.size();
         
         lapiz = new Lapiz(pizarra);
+        goma = new Goma(pizarra);
         rectangulo = new Rectangulo(pizarra);
         agregacion = new Agregacion(pizarra);
         composicion = new Composicion(pizarra);
@@ -86,7 +90,7 @@ public class PanelCentro extends JPanel{
             composicion.OtraPizarra(pizarra);
             herencia.OtraPizarra(pizarra);
             realizacion.OtraPizarra(pizarra);
-            
+            goma.OtraPizarra(pizarra);
         }
     }
     /**
@@ -106,7 +110,7 @@ public class PanelCentro extends JPanel{
             composicion.OtraPizarra(pizarra);
             herencia.OtraPizarra(pizarra);
             realizacion.OtraPizarra(pizarra);
-           
+            goma.OtraPizarra(pizarra);
         }
     }
     /**
@@ -137,7 +141,7 @@ public class PanelCentro extends JPanel{
         
         this.setLayout(null);
         BotonLimpiar = new JButton("Limpiar");
-        BotonLimpiar.setBounds(1150,10,100,40);
+        BotonLimpiar.setBounds(1150,10,110,60);
         this.add(BotonLimpiar);
         
         this.setLayout(null);
@@ -145,7 +149,7 @@ public class PanelCentro extends JPanel{
         BotonRectangulo = new JButton();
         BotonRectangulo.setIcon(Cuadrado);
         BotonRectangulo.setContentAreaFilled(false);
-        BotonRectangulo.setBounds(1150, 130, 100, 40);
+        BotonRectangulo.setBounds(10, 450, 120, 100);
         this.add(BotonRectangulo);
         
         this.setLayout(null);
@@ -153,8 +157,15 @@ public class PanelCentro extends JPanel{
         BotonLapiz = new JButton();
         BotonLapiz.setIcon(Lapiz);
         BotonLapiz.setContentAreaFilled(false);
-        BotonLapiz.setBounds(1150, 70, 100, 40);
+        BotonLapiz.setBounds(1150, 90, 110, 60);
         this.add(BotonLapiz);
+        
+        this.setLayout(null);
+        ImageIcon Goma = new ImageIcon("src/img/eraser.png");
+        BotonGoma = new JButton();
+        BotonGoma.setIcon(Goma);
+        BotonGoma.setBounds(1150,160,110,60);
+        this.add(BotonGoma);
         
         this.setLayout(null);
         ImageIcon Composicion = new ImageIcon("src/img/Composicion.png");
@@ -198,7 +209,7 @@ public class PanelCentro extends JPanel{
         
         this.setLayout(null);
         BotonTexto = new JButton("Texto");
-        BotonTexto.setBounds(1150,250,100,40);
+        BotonTexto.setBounds(1150,250,110,60);
         this.add(BotonTexto);
         
         this.setLayout(null);
@@ -236,11 +247,13 @@ public class PanelCentro extends JPanel{
             @Override
             public void mouseClicked(MouseEvent e){
                 System.out.println("Boton limpiar");
-                for(int j=0; j<pizarra.Lapiz.size(); j++){
+                pizarra.setBackground(Color.white);
+                
+                /*for(int j=0; j<pizarra.Lapiz.size(); j++){
                         pizarra.Lapiz.remove(j);
                 }
                 pizarra.repaint();
-                
+                */
                 /*pizarra.g = pizarra.getGraphics();
                 pizarra.g.setColor(Color.white);
                 pizarra.g.fillRect(0,0,2000,2000);*/
@@ -270,7 +283,7 @@ public class PanelCentro extends JPanel{
                 composicion.status(false);
                 asociacion.status(false);
                 realizacion.status(false);
-                
+                goma.status(false);
             }
             @Override
             public void mousePressed(MouseEvent e) {    
@@ -296,7 +309,7 @@ public class PanelCentro extends JPanel{
                 composicion.status(false);
                 asociacion.status(false);
                 realizacion.status(false);
-                
+                goma.status(false);
             }
             @Override
             public void mousePressed(MouseEvent e) {
@@ -322,7 +335,7 @@ public class PanelCentro extends JPanel{
                 composicion.status(false);
                 asociacion.status(false);
                 realizacion.status(false);
-                
+                goma.status(false);
             }
             @Override
             public void mousePressed(MouseEvent e) {
@@ -348,7 +361,7 @@ public class PanelCentro extends JPanel{
                 herencia.status(false);
                 asociacion.status(false);
                 realizacion.status(false);
-                
+                goma.status(false);
             }
             @Override
             public void mousePressed(MouseEvent e) {
@@ -375,7 +388,7 @@ public class PanelCentro extends JPanel{
                 rectangulo.status(false);
                 asociacion.status(false);
                 realizacion.status(false);
-                
+                goma.status(false);
             }
             @Override
             public void mousePressed(MouseEvent e) {
@@ -401,7 +414,7 @@ public class PanelCentro extends JPanel{
                 lapiz.status(false);
                 rectangulo.status(false);
                 realizacion.status(false);
-                
+                goma.status(false);
             }
             @Override
             public void mousePressed(MouseEvent e) {
@@ -428,7 +441,7 @@ public class PanelCentro extends JPanel{
                 agregacion.status(false);
                 lapiz.status(false);
                 rectangulo.status(false);
-                
+                goma.status(false);
             }
             @Override
             public void mousePressed(MouseEvent e) {
@@ -456,7 +469,7 @@ public class PanelCentro extends JPanel{
                 composicion.status(false);
                 agregacion.status(false);
                 rectangulo.status(false);
-                
+                goma.status(false);
             }
             @Override
             public void mousePressed(MouseEvent e) {
@@ -483,6 +496,7 @@ public class PanelCentro extends JPanel{
                 composicion.status(false);
                 agregacion.status(false);
                 rectangulo.status(false);
+                goma.status(false);
             }
             @Override
             public void mousePressed(MouseEvent e) {
@@ -509,6 +523,7 @@ public class PanelCentro extends JPanel{
                 composicion.status(false);
                 agregacion.status(false);
                 rectangulo.status(false);
+                goma.status(false);
             }
             @Override
             public void mousePressed(MouseEvent e) {
@@ -535,6 +550,33 @@ public class PanelCentro extends JPanel{
                 composicion.status(false);
                 agregacion.status(false);
                 rectangulo.status(false);
+                goma.status(false);
+            }
+            @Override
+            public void mousePressed(MouseEvent e) {
+            }
+            @Override
+            public void mouseReleased(MouseEvent e) {
+            }
+            @Override
+            public void mouseEntered(MouseEvent e) {
+            }
+            @Override
+            public void mouseExited(MouseEvent e) {
+            }
+        };
+        MouseListener botGoma = new MouseListener(){
+            @Override
+            public void mouseClicked(MouseEvent e){
+                System.out.println("Boton Goma");
+                goma.status(true);
+                lapiz.status(false);
+                realizacion.status(false);
+                asociacion.status(false);
+                herencia.status(false);
+                composicion.status(false);
+                agregacion.status(false);
+                rectangulo.status(false);
             }
             @Override
             public void mousePressed(MouseEvent e) {
@@ -552,6 +594,7 @@ public class PanelCentro extends JPanel{
         
         BotonLimpiar.addMouseListener(botlimpiar);
         BotonLapiz.addMouseListener(botLapiz);
+        BotonGoma.addMouseListener(botGoma);
         BotonRectangulo.addMouseListener(botRectangulo);
         BotonAgregacion.addMouseListener(botAgregacion);
         BotonComposicion.addMouseListener(botComposicion);
