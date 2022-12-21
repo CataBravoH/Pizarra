@@ -17,7 +17,7 @@ public class Realizacion {
     private PizarraVista pizarra;
     private Boolean b;
     private float guiones[]={10,10};
-    private int ancholinea=3;
+    private int ancholinea=2;
     private int cb = BasicStroke.CAP_BUTT;
     private int jr = BasicStroke.JOIN_ROUND;
     /**
@@ -43,29 +43,31 @@ public class Realizacion {
                         g2d.setStroke(new BasicStroke(ancholinea,cb,jr,0,guiones,0));
                         g2d.drawLine(x, y, e.getX(), e.getY());
                         g2d.setColor(Color.black);
-                        pizarra.gp = pizarra.getGraphics();
-                        pizarra.gp.setColor(Color.black);
+                        pizarra.g = pizarra.getGraphics();
+                        pizarra.g.setColor(Color.black);
                         if(e.getX() < x){
                             int [] puntosX = {x,x,x+10};
                             int [] puntosY = {y-10,y+10,y};
-                            pizarra.gp.drawPolygon(puntosX, puntosY, ancholinea);
+                            pizarra.g.drawPolygon(puntosX, puntosY, 3);
                             pizarra.repaint();
                         }
                         else if(e.getX() >= x){
                             int [] puntosX = {x,x-10,x};
                             int [] puntosY = {y-10,y,y+10};
-                            pizarra.gp.drawPolygon(puntosX, puntosY, ancholinea);
+                            pizarra.g.drawPolygon(puntosX, puntosY, 3);
                             pizarra.repaint();
                         }
                     }
                 }
             }
+            @Override
             public void mousePressed(MouseEvent e){
                 if(b==true){
                     x = e.getX();
                     y = e.getY();
                 }
             }
+            @Override
             public void mouseReleased(MouseEvent e){
                 if(b==true){
                     if(e.getModifiersEx() == 0){
@@ -83,7 +85,7 @@ public class Realizacion {
                         }
                         else if(e.getX() >= x){
                             int [] puntosX = {x,x-10,x};
-                            int [] puntosY = { y-10,y+10,y};
+                            int [] puntosY = { y-10,y,y+10};
                             Polygon triangulo = new Polygon(puntosX, puntosY,3);
                             pizarra.Triangulo.add(triangulo);
                             pizarra.repaint();

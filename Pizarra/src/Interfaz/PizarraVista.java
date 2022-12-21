@@ -15,8 +15,6 @@ public class PizarraVista extends JPanel{
     private final static int ANCHO = 1000;
     private final static int LARGO = 610;
     public Graphics g;
-    public Graphics gp;
-    public Graphics2D r;
     public ArrayList<int[]> Lineas;
     public ArrayList <int[]> Lineas2;
     public ArrayList<int[]> Rectangulo;
@@ -65,9 +63,6 @@ public class PizarraVista extends JPanel{
         for(int i=0; i<Lineas.size(); i++){
             g.drawLine(Lineas.get(i)[0],Lineas.get(i)[1], Lineas.get(i)[2], Lineas.get(i)[3]);
         }
-        for(int i=0; i<Lineas2.size(); i++){
-            g.drawLine(Lineas2.get(i)[0], Lineas2.get(i)[1], Lineas2.get(i)[2], Lineas2.get(i)[3]);
-        }
         for(int i=0; i<Composicion.size(); i++){
             g.fillPolygon(Composicion.get(i));
         }
@@ -87,9 +82,12 @@ public class PizarraVista extends JPanel{
             g.fillOval(Goma.get(i)[0], Goma.get(i)[1], Goma.get(i)[2], Goma.get(i)[3]);
         }
         for(int i=0; i<Realizacion.size(); i++){
-            r.setStroke(Realizacion.get(i));   
+            Graphics2D g2d = (Graphics2D)g;
+            for(int j=0; j<Lineas2.size();j++){
+                g2d.setStroke(Realizacion.get(i));
+                g2d.drawLine(Lineas2.get(j)[0], Lineas2.get(j)[1], Lineas2.get(j)[2], Lineas2.get(j)[3]);
+            }
+            
         }
-    }
-
-   
+    }   
 }

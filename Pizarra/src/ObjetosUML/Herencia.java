@@ -60,7 +60,7 @@ public class Herencia {
                 if(b==true){
                     if(e.getModifiersEx() == 0){
                         int [] nuevaLinea = {x,y,e.getX(), e.getY()};
-                        pizarra.Lineas2.add(nuevaLinea);
+                        pizarra.Lineas.add(nuevaLinea);
                         if(e.getX() < x){
                             int [] puntosX = {x,x,x+10};
                             int [] puntosY = {y-10,y+10,y};
