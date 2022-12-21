@@ -247,16 +247,19 @@ public class PanelCentro extends JPanel{
             @Override
             public void mouseClicked(MouseEvent e){
                 System.out.println("Boton limpiar");
-                pizarra.setBackground(Color.white);
-                
-                /*for(int j=0; j<pizarra.Lapiz.size(); j++){
-                        pizarra.Lapiz.remove(j);
+                for(int i=0; i<pizarras.size(); i++){
+                    pizarra.Lapiz.removeAll(pizarra.Lapiz);
+                    pizarra.Rectangulo.removeAll(pizarra.Rectangulo);
+                    pizarra.Agregacion.removeAll(pizarra.Agregacion);
+                    pizarra.Composicion.removeAll(pizarra.Composicion);
+                    pizarra.Lineas.removeAll(pizarra.Lineas);
+                    pizarra.Lineas2.removeAll(pizarra.Lineas2);
+                    pizarra.Colores.removeAll(pizarra.Colores);
+                    pizarra.Goma.removeAll(pizarra.Goma);
+                    pizarra.Triangulo.removeAll(pizarra.Triangulo);
+                    pizarra.Realizacion.removeAll(pizarra.Realizacion);
                 }
                 pizarra.repaint();
-                */
-                /*pizarra.g = pizarra.getGraphics();
-                pizarra.g.setColor(Color.white);
-                pizarra.g.fillRect(0,0,2000,2000);*/
             }
             @Override
             public void mousePressed(MouseEvent e) {   

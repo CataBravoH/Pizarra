@@ -28,3 +28,4 @@ Se propone para hoy, arreglar funciones de uml.
 
 20/12
 -Creacion de una goma
+-Funcionalidad al boton limpiar
