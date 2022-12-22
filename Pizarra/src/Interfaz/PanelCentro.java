@@ -9,8 +9,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import ObjetosUML.*;
-import herramientas.*;
-import Herramientas.Goma;
+import Herramientas.*;
 /**
  * Clase Panel del centro que contiene las demás clases para darle visualizarlas de distintas maneras y darle su funcion correspondiente
  * @author cata

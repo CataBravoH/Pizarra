@@ -1,4 +1,4 @@
-package herramientas;
+package Herramientas;
 
 import javax.swing.JFrame;
 import Interfaz.*;
